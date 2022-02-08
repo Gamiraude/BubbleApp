@@ -4,62 +4,143 @@
              x:Class="BubbleApp.MainPage">
     <ContentPage.Resources>
         <Style TargetType="Frame" x:Key="SentMessageStyle">
-            <Setter Property="BackgroundColor" Value="#d7f0ff"/>
-            <Setter Property="CornerRadius" Value="15"/>
-            <Setter Property="HasShadow" Value="True"/>
-            <Setter Property="Margin" Value="40, 15, 20, 15"/>
-            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BackgroundColor" Value="#d7f0ff" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="HasShadow" Value="True" />
+            <Setter Property="Margin" Value="40, 15, 5, 15" />
+            <Setter Property="Padding" Value="10" />
         </Style>
         <Style TargetType="Label" x:Key="MessageText">
-            <Setter Property="TextColor" Value="Black"/>
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="17" />
         </Style>
         <Style TargetType="Frame" x:Key="ReceivedMessageStyle">
-            <Setter Property="BackgroundColor" Value="#eff6fb"/>
-            <Setter Property="CornerRadius" Value="15"/>
-            <Setter Property="HasShadow" Value="True"/>
-            <Setter Property="Margin" Value="20, 15, 40,15"/>
-            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BackgroundColor" Value="#eff6fb" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="HasShadow" Value="True" />
+            <Setter Property="Margin" Value="5, 15, 40,15" />
+            <Setter Property="Padding" Value="10" />
         </Style>
     </ContentPage.Resources>
 
-    <StackLayout BackgroundColor="WhiteSmoke">
-        <Frame BackgroundColor="WHite"
+    <StackLayout>
+        <StackLayout Spacing="0" BackgroundColor="WhiteSmoke">
+            <Frame BackgroundColor="WHite"
                CornerRadius="15"
                HasShadow="True"
                Margin="40, 15, 40, 15"
-               Padding=" 20, 10, 20, 10">  
-          
-            <StackLayout>
+               Padding=" 20, 10, 20, 10">
+
                 <Label Text="Messages sent by participants in this conversation are encrypted"
                        FontSize="12"
                        HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"/>
-            </StackLayout>
-        </Frame>
-        <Frame Style="{StaticResource SentMessageStyle}">
-            <StackLayout>
-                <Label Text="Remember my product idea? I have updates, but it's sensitive."
-                       Style="{StaticResource MessageText}"/>
-                <Label Text="09:28"
-                       HorizontalTextAlignment="Start"/>
-            </StackLayout>
-        </Frame>
-        <Frame Style="{StaticResource ReceivedMessageStyle}">
-            <StackLayout>
-                <Label Text="Send them to me here. Everything's encrypted."
-                       Style="{StaticResource MessageText}"/>
-                <Label Text="09:29"
-                       HorizontalTextAlignment="End"/>
-            </StackLayout>
-        </Frame>
-        <Frame Style="{StaticResource SentMessageStyle}">
-            <StackLayout>
-                <Image Source="topsecret"/>
-                <Label Text="09:30"
-                       HorizontalTextAlignment="Start"/>
-            </StackLayout>
+                       VerticalTextAlignment="Center" />
+            </Frame>
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="115" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Row="0" Grid.Column="0" Style="{StaticResource SentMessageStyle}">
+                    <StackLayout>
+                        <Label Text="Remember my product idea? I have updates, but it's sensitive."
+                       Style="{StaticResource MessageText}" />
+                        <Label Text="09:28"
+                       HorizontalTextAlignment="Start" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="0" 
+                       Grid.Column="1"
+                       Margin="0, 33, 15, 33"
+                       CornerRadius="50"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       IsClippedToBounds="True"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">                    
+                        <Image Source="aperson"
+                               Aspect="AspectFill"
+                               Margin="-20"
+                               HeightRequest="100"
+                               WidthRequest="100"/>              
+                </Frame>
+            </Grid>
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="115" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Row="0" 
+                       Grid.Column="0"
+                       Margin="15, 33, 0, 33"
+                       CornerRadius="50"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       IsClippedToBounds="True"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Image Source="vperson"
+                               Aspect="AspectFill"
+                               Margin="-20"
+                               HeightRequest="100"
+                               WidthRequest="100"/>
+                </Frame>
+                <Frame Grid.Row="0" Grid.Column="1" Style="{StaticResource ReceivedMessageStyle}">
+                    <StackLayout>
+                        <Label Text="Send them to me here. Everything's encrypted."
+                       Style="{StaticResource MessageText}" />
+                        <Label Text="09:29"
+                       HorizontalTextAlignment="End" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="275" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Row="0" Grid.Column="0" Style="{StaticResource SentMessageStyle}">
+                    <StackLayout>
+                        <Image Source="topsecret" />
+                        <Label Text="09:30"
+                       HorizontalTextAlignment="Start" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="0" 
+                       Grid.Column="1"
+                       Margin="0, 60, 15, 60"
+                       CornerRadius="50"
+                       HeightRequest="10"
+                       WidthRequest="10"
+                       IsClippedToBounds="True"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Image Source="aperson"
+                               Aspect="AspectFill"
+                               Margin="-20"
+                               HeightRequest="100"
+                               WidthRequest="100"/>
+                </Frame>
+            </Grid>
+        </StackLayout>
+        <Frame VerticalOptions="EndAndExpand"
+               CornerRadius="15"
+               HasShadow="True"
+               BackgroundColor="#D4FDFF"
+               Margin="5"
+               Padding="5,0,5,0">
+            <Entry Placeholder="Enter text here" 
+                   HorizontalTextAlignment="End" 
+                   Keyboard="Chat"/>
         </Frame>
     </StackLayout>
-    
 </ContentPage>
